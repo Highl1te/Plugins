@@ -46,8 +46,8 @@
         "emitDecoratorMetadata": true
     },
     "include": [
-        "src/**/*",
-        "resources/**/*",
+      "Lookup/src/**/*",
+      "Lookup/resources/**/*"
     ],
     "exclude": [
         "node_modules",

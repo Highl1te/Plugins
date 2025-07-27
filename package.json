@@ -1,16 +1,13 @@
 {
-  "name": "ExamplePlugin",
-  "packageManager": "yarn@4.9.1",
-  "engines": {
-    "node": ">=22.0.0"
-  },
+  "name": "highlite-plugins",
+  "author": "HighLite Team",
+  "license": "LGPL-3.0-or-later",
+  "private": true,
+  "workspaces": [
+    "*"
+  ],
   "scripts": {
-    "build": "node build.mjs"
+    "build-all": "yarn workspaces foreach --all run build && rm -rf dist && mkdir dist && find . -mindepth 2 -maxdepth 2 -type d -name dist -exec bash -c 'cp -v \"$0\"/* dist/' {} \\;"
   },
-  "main": "src/ExamplePlugin.ts",
-  "devDependencies": {
-    "@highlite/plugin-api": "^1.0.13",
-    "esbuild": "^0.25.8",
-    "typescript": "^5.8.3"
-  }
+  "packageManager": "yarn@4.9.2"
 }
