@@ -23,7 +23,7 @@ export default class ContextMenuOptions extends Plugin {
         };
 
         this.settings.prioritizeAttack = {
-            text: 'Prioritize Loot',
+            text: 'Prioritize Attack',
             type: 0,
             value: false,
             callback: this.enablePrioritizeAttackChanged,
