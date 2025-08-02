@@ -630,7 +630,7 @@ export default class Nameplates extends Plugin {
         // Cleanup stale Players
         for (const key in this.PlayerDomElements) {
             const exists =
-                Players.some(p => p._entityId === parseInt(key)) ||
+                Players.some(p => p?._entityId === parseInt(key)) ||
                 (MainPlayer && MainPlayer._entityId === parseInt(key));
             if (!exists) {
                 this.disposeElementFromCollection(this.PlayerDomElements, key);
@@ -684,6 +684,7 @@ export default class Nameplates extends Plugin {
     ): void {
         if (this.settings.playerNameplates!.value) {
             for (const player of Players) {
+                if (!player) continue;
                 if (!this.PlayerDomElements[player._entityId]) {
                     this.createPlayerElement(player._entityId, player, false);
                 }
