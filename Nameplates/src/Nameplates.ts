@@ -1,4 +1,4 @@
-import { Vector3 } from '@babylonjs/core/Maths/math';
+import { Vector3 } from '@babylonjs/core/Maths/math.js';
 import { Plugin } from '@highlite/plugin-api';
 import { SettingsTypes } from '@highlite/plugin-api';
 import { UIManager, UIManagerScope } from '@highlite/plugin-api';
