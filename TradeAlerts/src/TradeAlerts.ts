@@ -1,7 +1,7 @@
-import { Plugin } from '@highlite/plugin-api'
-import { SettingsTypes } from '@highlite/plugin-api'
-import { NotificationManager } from '@highlite/plugin-api'
-import { SoundManager } from '@highlite/plugin-api'
+import { Plugin } from '@highlite/core'
+import { SettingsTypes } from '@highlite/core'
+import { NotificationManager } from '@highlite/core'
+import { SoundManager } from '@highlite/core'
 import TradeAlert from '../resources/sounds/trade_alert.mp3';
 
 export default class TradeAlerts extends Plugin {
@@ -17,6 +17,8 @@ export default class TradeAlerts extends Plugin {
             text: 'Volume',
             type: SettingsTypes.range,
             value: 50,
+            min: 0,
+            max: 100,
             callback: () => Function('NOOP'),
         };
         this.settings.notification = {

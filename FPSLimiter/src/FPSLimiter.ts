@@ -1,5 +1,5 @@
-import { Plugin } from '@highlite/plugin-api';
-import { SettingsTypes } from '@highlite/plugin-api';
+import { Plugin } from '@highlite/core';
+import { SettingsTypes } from '@highlite/core';
 
 export default class FPSLimiter extends Plugin {
     pluginName = 'FPS Limiter';
@@ -14,6 +14,8 @@ export default class FPSLimiter extends Plugin {
         this.settings.targetFPS = {
             text: 'Target FPS',
             type: SettingsTypes.range,
+            min: 1,
+            max: 300,
             value: 60,
             callback: () => {
                 if (this.settings.enable.value) {

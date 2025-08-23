@@ -1,9 +1,9 @@
-import { Plugin, SettingsTypes } from "@highlite/plugin-api";
+import { Plugin, SettingsTypes } from '@highlite/core';
 import {
     UIManager,
     UIManagerScope,
     abbreviateValue,
-} from "@highlite/plugin-api";
+} from '@highlite/core';
 
 export default class CoinCounter extends Plugin {
     pluginName = "Coin Counter";

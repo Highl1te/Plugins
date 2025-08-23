@@ -1,9 +1,9 @@
 import { Vector3 } from '@babylonjs/core/Maths/math.js';
-import { Plugin } from '@highlite/plugin-api';
-import { SettingsTypes } from '@highlite/plugin-api';
-import { UIManager, UIManagerScope } from '@highlite/plugin-api';
-import { NotificationManager } from '@highlite/plugin-api';
-import { SoundManager } from '@highlite/plugin-api';
+import { Plugin } from '@highlite/core';
+import { SettingsTypes } from '@highlite/core';
+import { UIManager, UIManagerScope } from '@highlite/core';
+import { NotificationManager } from '@highlite/core';
+import { SoundManager } from '@highlite/core';
 
 export default class Nameplates extends Plugin {
     pluginName = 'Nameplates';

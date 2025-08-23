@@ -1,4 +1,4 @@
-import {ActionState, ContextMenuManager, ContextMenuTypes, EntityType, Plugin} from "@highlite/plugin-api";
+import {ActionState, ContextMenuManager, ContextMenuTypes, EntityType, Plugin} from '@highlite/core';
 
 export default class LookupPlugin extends Plugin {
     pluginName = "Wiki Lookup";

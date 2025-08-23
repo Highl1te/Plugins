@@ -1,5 +1,5 @@
-import { Plugin } from '@highlite/plugin-api';
-import { PanelManager } from '@highlite/plugin-api';
+import { Plugin } from '@highlite/core';
+import { PanelManager } from '@highlite/core';
 
 import interact from 'interactjs';
 

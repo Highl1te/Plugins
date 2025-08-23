@@ -1,6 +1,6 @@
-import { Plugin } from '@highlite/plugin-api';
-import { abbreviateValue } from '@highlite/plugin-api';
-import { PanelManager } from '@highlite/plugin-api';
+import { Plugin } from '@highlite/core';
+import { abbreviateValue } from '@highlite/core';
+import { PanelManager } from '@highlite/core';
 
 interface XPWindow {
     xpGained: number;

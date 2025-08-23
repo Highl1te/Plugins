@@ -1,5 +1,5 @@
-import { Plugin } from '@highlite/plugin-api';
-import { ContextMenuManager } from '@highlite/plugin-api';
+import { Plugin } from '@highlite/core';
+import { ContextMenuManager } from '@highlite/core';
 
 export default class ContextMenuOptions extends Plugin {
     pluginName = 'Context Menu Options';

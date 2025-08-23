@@ -1,8 +1,8 @@
-import { NotificationManager } from '@highlite/plugin-api';
-import { Plugin } from '@highlite/plugin-api';
-import { SettingsTypes } from '@highlite/plugin-api';
-import { SoundManager } from '@highlite/plugin-api';
-import LowHPSound from '../resources/sounds/low_hp.mp3';
+import { NotificationManager } from '@highlite/core';
+import { Plugin } from '@highlite/core';
+import { SettingsTypes } from '@highlite/core';
+import { SoundManager } from '@highlite/core';
+import LowHPSound from "../resources/sounds/low_hp.mp3";
 
 export default class HPAlert extends Plugin {
     pluginName = 'HP Alert';
@@ -19,12 +19,16 @@ export default class HPAlert extends Plugin {
             text: 'Volume',
             type: SettingsTypes.range,
             value: 50,
+            min: 0,
+            max: 100,
             callback: () => {}, //NOOP
         };
         this.settings.activationPercent = {
             text: 'Activation Percent',
             type: SettingsTypes.range,
             value: 50,
+            min: 1,
+            max: 99,
             callback: () => {}, //NOOP
         };
         this.settings.notification = {
