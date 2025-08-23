@@ -56,6 +56,8 @@ export default class Nameplates extends Plugin {
             text: 'Player Nameplate Text Size',
             type: SettingsTypes.range,
             value: 12,
+            min: 2,
+            max: 32,
             callback: () => this.updateAllFontSizes(),
             validation: (value: string | number | boolean) => {
                 const numValue = value as number;
@@ -66,6 +68,8 @@ export default class Nameplates extends Plugin {
             text: 'NPC Nameplate Text Size',
             type: SettingsTypes.range,
             value: 12,
+            min: 2,
+            max: 32,
             callback: () => this.updateAllFontSizes(),
             validation: (value: string | number | boolean) => {
                 const numValue = value as number;
@@ -76,6 +80,8 @@ export default class Nameplates extends Plugin {
             text: 'You Nameplate Text Size',
             type: SettingsTypes.range,
             value: 12,
+            min: 2,
+            max: 32,
             callback: () => this.updateAllFontSizes(),
             validation: (value: string | number | boolean) => {
                 const numValue = value as number;
@@ -86,6 +92,8 @@ export default class Nameplates extends Plugin {
             text: 'Ground Item Nameplate Text Size',
             type: SettingsTypes.range,
             value: 12,
+            min: 2,
+            max: 32,
             callback: () => this.updateAllFontSizes(),
             validation: (value: string | number | boolean) => {
                 const numValue = value as number;
@@ -124,6 +132,8 @@ export default class Nameplates extends Plugin {
             text: 'Max NPC Stack Display',
             type: SettingsTypes.range,
             value: 5,
+            min: 1,
+            max: 32,
             callback: () => this.updateStackLimits(),
             validation: (value: string | number | boolean) => {
                 const numValue = value as number;
@@ -134,6 +144,8 @@ export default class Nameplates extends Plugin {
             text: 'Max Player Stack Display',
             type: SettingsTypes.range,
             value: 5,
+            min: 1,
+            max: 128,
             callback: () => this.updateStackLimits(),
             validation: (value: string | number | boolean) => {
                 const numValue = value as number;
@@ -144,6 +156,8 @@ export default class Nameplates extends Plugin {
             text: 'Max Ground Item Stack Display',
             type: SettingsTypes.range,
             value: 8,
+            min: 1,
+            max: 128,
             callback: () => this.updateStackLimits(),
             validation: (value: string | number | boolean) => {
                 const numValue = value as number;
@@ -188,6 +202,8 @@ export default class Nameplates extends Plugin {
             text: 'Priority Item Alert Volume',
             type: SettingsTypes.range,
             value: 50,
+            min: 0,
+            max: 100,
             callback: () => {}, //NOOP
             validation: (value: string | number | boolean) => {
                 const numValue = value as number;
