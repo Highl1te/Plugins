@@ -2,7 +2,7 @@ import { NotificationManager } from '@highlite/core';
 import { Plugin } from '@highlite/core';
 import { SettingsTypes } from '@highlite/core';
 import { SoundManager } from '@highlite/core';
-import LowHPSound from "../resources/sounds/low_hp.mp3";
+import LowHPSound from "../resources/sounds/heartbeat.mp3";
 
 export default class HPAlert extends Plugin {
     pluginName = 'HP Alert';
@@ -84,16 +84,10 @@ export default class HPAlert extends Plugin {
     private testPlayCustomSound(): void {
         try {
             const customSoundUrl = this.settings.customSoundUrl?.value as string;
-            const volume = (this.settings.volume?.value as number) / 100;
+            const volume = (this.settings.volume?.value as number) / 100.0;
 
-            if (!customSoundUrl || customSoundUrl.trim() === '') {
-                alert('Please enter a custom sound URL first');
-                this.log('No custom sound URL provided for test');
-                return;
-            }
-
-            this.log(`Testing custom sound: ${customSoundUrl}`);
-            this.soundManager.playSound(customSoundUrl, volume);
+            this.log(`Testing custom sound: ${customSoundUrl.trim()}`);
+            this.soundManager.playSound(customSoundUrl.trim() || LowHPSound, volume);
 
         } catch (error) {
             this.error(`Error testing custom sound: ${error}`);
@@ -102,17 +96,10 @@ export default class HPAlert extends Plugin {
     }
 
     GameLoop_update(): void {
-        if (!this.settings.enable.value) {
-            return;
-        }
         const player = this.gameHooks.EntityManager.Instance._mainPlayer;
         const localNPCs = this.gameHooks.EntityManager.Instance._npcs;
 
-        if (player === undefined) {
-            return;
-        }
-
-        if (player._hitpoints == undefined) {
+        if (!player?._hitpoints) {
             return;
         }
 
@@ -122,9 +109,13 @@ export default class HPAlert extends Plugin {
         ) {
             if (this.doNotify && this.settings.notification?.value) {
                 this.doNotify = false;
-                this.notificationManager.createNotification(
-                    `${player._name} is low on health!`
-                );
+                try {
+                    this.notificationManager.createNotification(
+                        `${player._name} is low on health!`
+                    );
+                } catch(e) {
+                    this.error("Unable to create HP notification");
+                }
             }
 
             // Check if any entity in localEntities (map object) .CurrentTarget is the player
@@ -150,7 +141,7 @@ export default class HPAlert extends Plugin {
                     // Use custom sound if enabled and url exists, otherwise use default
                     this.settings.useCustomSound?.value && this.settings.customSoundUrl.value != '' ? this.settings.customSoundUrl.value as string :
                         LowHPSound,
-                    (this.settings.volume!.value as number) / 100
+                    (this.settings.volume!.value as number) / 100.0
                 );
             }
         } else {
