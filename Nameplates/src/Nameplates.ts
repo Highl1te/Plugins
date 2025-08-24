@@ -904,7 +904,7 @@ export default class Nameplates extends Plugin {
             lvlSpan.style.textAlign = 'center';
             lvlSpan.style.fontSize = `${this.settings.npcNameplateSize!.value}px`;
             lvlSpan.innerText = `Lvl. ${npc._combatLevel}`;
-            lvlSpan.style.color = 'white';
+            lvlSpan.style.color = 'gray';
             /*
             lvlSpan.className =
                 HW.getTextColorClassNameForCombatLevelDifference(
