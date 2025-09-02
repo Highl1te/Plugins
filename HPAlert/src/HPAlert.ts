@@ -67,6 +67,13 @@ export default class HPAlert extends Plugin {
             value: 'Play Sound',
             callback: () => this.testPlayCustomSound(),
         };
+
+        this.settings.testSound = {
+            text: 'Test Sound',
+            type: SettingsTypes.button,
+            value: 'Play Sound',
+            callback: () => this.testPlaySound(),
+        };
     }
 
     init(): void {
@@ -92,6 +99,20 @@ export default class HPAlert extends Plugin {
         } catch (error) {
             this.error(`Error testing custom sound: ${error}`);
             alert('Failed to play custom sound. Please check the URL and try again.');
+        }
+    }
+
+    private testPlaySound(): void {
+        try {
+            const customSoundUrl = this.settings.customSoundUrl?.value as string;
+            const volume = (this.settings.volume?.value as number) / 100.0;
+
+            this.log(`Testing sound...`);
+            this.soundManager.playSound(LowHPSound,volume);
+
+        } catch (error) {
+            this.error(`Error testing sound: ${error}`);
+            alert('Failed to play sound. Please check the URL and try again.');
         }
     }
 
